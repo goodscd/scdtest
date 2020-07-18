@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--组件扫描器-->
+    <context:component-scan base-package="com.cd.crm.*.web.controller"/>
+    <!--注解驱动-->
+    <mvc:annotation-driven/>
+    <!--静态资源的访问路径-->
+    <mvc:resources mapping="/image/**" location="/image/"/>
+    <mvc:resources mapping="/jquery/**" location="/jquery/"/>
+    <mvc:resources mapping="/settings/**" location="/settings/"/>
+    <mvc:resources mapping="/workbench/**" location="/workbench/"/>
+    <!--声明拦截器的位置-->
+    <!--注册拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--拦截所有请求-->
+            <mvc:mapping path="*.do"/>
+            <!--拦截器的全限定名称-->
+            <bean class="com.cd.crm.web.Interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>
