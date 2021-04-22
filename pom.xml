@@ -52,7 +52,7 @@
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
-      <version>3.5.1</version>
+      <version>3.5.6</version>
     </dependency>
     <!--加入阿里的druid数据库连接池替换掉mybatis中的POOLED连接池-->
     <dependency>
